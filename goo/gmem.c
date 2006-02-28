@@ -11,6 +11,7 @@
 #include <stdlib.h>
 #include <stddef.h>
 #include <string.h>
+#include <limits.h>
 #include "gmem.h"
 
 #ifdef DEBUG_MEM
@@ -62,7 +63,7 @@ void *gmalloc(size_t size) {
   int lst;
   unsigned long *trl, *p;
 
-  if (size == 0)
+  if (size <= 0)
     return NULL;
   size1 = gMemDataSize(size);
   if (!(mem = (char *)malloc(size1 + gMemHdrSize + gMemTrlSize))) {
@@ -84,7 +85,7 @@ void *gmalloc(size_t size) {
 #else
   void *p;
 
-  if (size == 0)
+  if (size <= 0)
     return NULL;
   if (!(p = malloc(size))) {
     fprintf(stderr, "Out of memory\n");
@@ -100,7 +101,7 @@ void *grealloc(void *p, size_t size) {
   void *q;
   size_t oldSize;
 
-  if (size == 0) {
+  if (size <= 0) {
     if (p)
       gfree(p);
     return NULL;
@@ -118,7 +119,7 @@ void *grealloc(void *p, size_t size) {
 #else
   void *q;
 
-  if (size == 0) {
+  if (size <= 0) {
     if (p)
       free(p);
     return NULL;
