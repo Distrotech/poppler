@@ -1,3 +1,7 @@
+2006-11-11  Albert Astals Cid <aacid@kde.org>
+
+	* poppler/PSOutputDev.cc: Fix typo when outputing PS scale
+
 2006-10-18  Albert Astals Cid <aacid@kde.org>
 
 	* qt4/src/poppler-document.cc:
