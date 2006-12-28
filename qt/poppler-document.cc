@@ -233,7 +233,7 @@ QDateTime Document::getDate( const QString & type ) const
 	else {
 	  obj.free();
 	  info.free();
-	  delete aux;
+	  delete[] aux;
 	  return QDateTime();
 	}
       }
@@ -243,11 +243,11 @@ QDateTime Document::getDate( const QString & type ) const
       if ( d.isValid() && t.isValid() ) {
 	obj.free();
 	info.free();
-	delete aux;
+	delete[] aux;
 	return QDateTime( d, t );
       }
     }
-    delete aux;
+    delete[] aux;
   }
   obj.free();
   info.free();
