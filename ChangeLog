@@ -1,3 +1,9 @@
+2007-01-11  Albert Astals Cid <aacid@kde.org>
+
+	* poppler/Catalog.h:
+	* poppler/Catalog.cc: Limit max depth of recursive calls on
+	readPageTree to fix MOAB-06-01-2007
+
 2007-01-04  Albert Astals Cid <aacid@kde.org>
 
 	* qt/poppler-page-transition.cc: Fix memory leak. Patch by
