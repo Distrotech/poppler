@@ -1,3 +1,8 @@
+2007-01-28  Albert Astals Cid <aacid@kde.org>
+
+	* glib/poppler-document.cc: Plug memory leak in poppler-document.
+	Patch by Carlos Garcia Campos <carlosgc@gnome.org>
+
 2007-01-11  Albert Astals Cid <aacid@kde.org>
 
 	* goo/gmem.c: Merge change from xpdf-3.01pl2
