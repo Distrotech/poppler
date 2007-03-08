@@ -37,6 +37,7 @@
 
 PageAttrs::PageAttrs(PageAttrs *attrs, Dict *dict) {
   Object obj1;
+  PDFRectangle mBox;
 
   // get old/default values
   if (attrs) {
@@ -59,7 +60,9 @@ PageAttrs::PageAttrs(PageAttrs *attrs, Dict *dict) {
   }
 
   // media box
-  readBox(dict, "MediaBox", &mediaBox);
+  if (readBox(dict, "MediaBox", &mBox)) {
+    mediaBox = mBox;
+  }
 
   // crop box
   if (readBox(dict, "CropBox", &cropBox)) {
@@ -168,6 +171,8 @@ GBool PageAttrs::readBox(Dict *dict, char *key, PDFRectangle *box) {
       ok = gFalse;
     }
     obj2.free();
+    if (tmp.x1 == 0 && tmp.x2 == 0 && tmp.y1 == 0 && tmp.y2 == 0)
+      ok = gFalse;
     if (ok) {
       if (tmp.x1 > tmp.x2) {
 	t = tmp.x1; tmp.x1 = tmp.x2; tmp.x2 = t;
