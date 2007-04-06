@@ -1456,8 +1456,8 @@ void Gfx::opCloseStroke(Object * /*args[]*/, int /*numArgs*/) {
     //error(getPos(), "No path in closepath/stroke");
     return;
   }
+  state->closePath();
   if (state->isPath()) {
-    state->closePath();
     if (state->getStrokeColorSpace()->getMode() == csPattern) {
       doPatternStroke();
     } else {
@@ -3953,7 +3953,6 @@ Stream *Gfx::buildImageStream() {
 	break;
       }
       dict.dictAdd(key, &obj);
-      gfree(key);
     }
     parser->getObj(&obj);
   }
