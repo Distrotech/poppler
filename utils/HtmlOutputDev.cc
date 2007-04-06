@@ -33,7 +33,6 @@
 #include "GlobalParams.h"
 #include "HtmlOutputDev.h"
 #include "HtmlFonts.h"
-#include "UGooString.h"
 
 int HtmlPage::pgNum=0;
 int HtmlOutputDev::imgNum=1;
@@ -1269,6 +1268,8 @@ void HtmlOutputDev::drawImage(GfxState *state, Object *ref, Stream *str,
 
 
 void HtmlOutputDev::drawLink(Link* link,Catalog *cat){
+#warning THIS WON'T WORK OUTPUTDEV DOES NOT HAS drawLink anymore
+/*
   double _x1,_y1,_x2,_y2,w;
   int x1,y1,x2,y2;
   
@@ -1282,7 +1283,7 @@ void HtmlOutputDev::drawLink(Link* link,Catalog *cat){
   GooString* _dest=getLinkDest(link,cat);
   HtmlLink t((double) x1,(double) y2,(double) x2,(double) y1,_dest);
   pages->AddLink(t);
-  delete _dest;
+  delete _dest;*/
 }
 
 GooString* HtmlOutputDev::getLinkDest(Link *link,Catalog* catalog){

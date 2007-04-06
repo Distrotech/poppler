@@ -18,7 +18,6 @@
 #include "Catalog.h"
 #include "Gfx.h"
 #include "Lexer.h"
-#include "UGooString.h"
 #include "Annot.h"
 #include "GfxFont.h"
 #include "CharCodeToUnicode.h"
@@ -334,7 +333,7 @@ void Annot::generateAppearance(Dict *acroForm, Dict *dict) {
         Object obj3, obj4;
         //--
         bool found = false;
-        if (obj1.dictLookup(*fontName, &obj3)->isDict() && obj3.dictLookup("Type", &obj4)->isName("Font")) {
+        if (obj1.dictLookup(fontName->getCString(), &obj3)->isDict() && obj3.dictLookup("Type", &obj4)->isName("Font")) {
           found = true;
         }
         if (!found) { //font not found in DR, try to lookup in each entry BaseFont/Name
@@ -364,7 +363,7 @@ void Annot::generateAppearance(Dict *acroForm, Dict *dict) {
         }
         if (found) {
           obj4.free();
-          obj1.dictLookupNF(*fontName, &obj4);
+          obj1.dictLookupNF(fontName->getCString(), &obj4);
           Ref r;
           if (obj4.isRef()) r = obj4.getRef();
           else r.gen = r.num = 0;
@@ -476,7 +475,8 @@ void Annot::generateAppearance(Dict *acroForm, Dict *dict) {
 void Annot::draw(Gfx *gfx) {
   Object obj;
   if (appearance.fetch(xref, &obj)->isStream()) {
-    gfx->doAnnot(&obj, xMin, yMin, xMax, yMax);
+#warning TODO!!!
+    // gfx->doAnnot(&obj, xMin, yMin, xMax, yMax);
   }
   obj.free();
 }

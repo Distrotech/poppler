@@ -21,7 +21,6 @@
 #include "Array.h"
 #include "Dict.h"
 #include "Form.h"
-#include "UGooString.h"
 #include "XRef.h"
 #include "PDFDocEncoding.h"
 #include "Annot.h"
@@ -202,9 +201,9 @@ void FormWidgetButton::loadDefaults ()
           for(int j=0; j<length2; j++) {
             Object obj3;
             tmpDict2->getVal(j, &obj3);
-            UGooString *key = tmpDict2->getKey(j);
-            if(strcmp(key->getCString(), "Off")) { //if we don't have Off, we have the name of the "on" state
-              onStr = strdup(key->getCString());
+            char *key = tmpDict2->getKey(j);
+            if(strcmp(key, "Off")) { //if we don't have Off, we have the name of the "on" state
+              onStr = strdup(key);
             }
             obj3.free();
           }

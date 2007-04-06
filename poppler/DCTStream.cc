@@ -6,6 +6,9 @@
 //
 //========================================================================
 
+#warning LIBJPEG DCTSTream is broken, fix it
+#if 0
+
 #include "DCTStream.h"
 
 static void str_init_source(j_decompress_ptr cinfo)
@@ -168,3 +171,5 @@ GooString *DCTStream::getPSFilter(int psLevel, char *indent) {
 GBool DCTStream::isBinary(GBool last) {
   return str->isBinary(gTrue);
 }
+
+#endif // this is the #if 0 endif

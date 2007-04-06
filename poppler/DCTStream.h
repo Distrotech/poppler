@@ -10,6 +10,9 @@
 #define DCTSTREAM_H
 #include <config.h>
 
+#warning LIBJPEG DCTSTream is broken, fix it
+#if 0
+
 #ifdef USE_GCC_PRAGMAS
 #pragma interface
 #endif
@@ -70,4 +73,6 @@ private:
   JSAMPARRAY row_buffer;
 };
 
-#endif
+#endif // this is the #if 0 endif
+
+#endif 
