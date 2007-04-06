@@ -1268,7 +1268,7 @@ void HtmlOutputDev::drawImage(GfxState *state, Object *ref, Stream *str,
 
 
 void HtmlOutputDev::drawLink(Link* link,Catalog *cat){
-#warning THIS WON'T WORK OUTPUTDEV DOES NOT HAS drawLink anymore
+#warning THIS WONT WORK OUTPUTDEV DOES NOT HAS drawLink anymore
 /*
   double _x1,_y1,_x2,_y2,w;
   int x1,y1,x2,y2;
