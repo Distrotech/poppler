@@ -555,9 +555,7 @@ GBool NameTree::lookup(GooString *name, Object *obj)
     (*entry)->value.fetch(xref, obj);
     return gTrue;
   } else {
-    cname = name->getCString();
-    printf("failed to look up %s\n", cname);
-    delete[] cname;
+    printf("failed to look up %s\n", name->getCString());
     obj->initNull();
     return gFalse;
   }

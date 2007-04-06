@@ -278,9 +278,7 @@ dest_new_named (GooString *named_dest)
 	}
 
 	dest->type = POPPLER_DEST_NAMED;
-	name = named_dest->getCString ();
-	dest->named_dest = g_strdup (name);
-	delete[] name;
+	dest->named_dest = g_strdup (named_dest->getCString ());
 
 	return dest;
 }
