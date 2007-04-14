@@ -1065,7 +1065,7 @@ Form::Form(XRef *xrefA, Object* acroForm)
     oref.free();
   }
 
-  checkForNeedAppearances(); 
+  checkForNeedAppearances(acroForm); 
 }
 
 Form::~Form() {
@@ -1075,21 +1075,19 @@ Form::~Form() {
   delete [] rootFields;
 }
 
-void Form::checkForNeedAppearances ()
+void Form::checkForNeedAppearances (Object *acroForm)
 {
   //NeedAppearances needs to be set to 'true' in the AcroForm entry of the Catalog to enable dynamic appearance generation
   Object* catalog = new Object();
-  Object acroForm;
   Ref catRef;
   catRef.gen = xref->getRootGen();
   catRef.num = xref->getRootNum();
   catalog = xref->getCatalog(catalog);
-  catalog->dictLookup("AcroForm", &acroForm);
+  catalog->dictLookup("AcroForm", acroForm);
   Object obj1;
   obj1.initBool(true);
-  acroForm.dictSet("NeedAppearances", &obj1);
-  obj1.free();
-  catalog->dictSet("AcroForm", &acroForm);
+  acroForm->dictSet("NeedAppearances", &obj1);
+  catalog->dictSet("AcroForm", acroForm);
   xref->setModifiedObject(catalog, catRef);
 }
 

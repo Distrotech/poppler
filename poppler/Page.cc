@@ -416,8 +416,7 @@ void Page::displaySlice(OutputDev *out, double hDPI, double vDPI,
   if (acroForm) {
     if (acroForm->lookup("NeedAppearances", &obj)) {
       if (obj.isBool() && obj.getBool()) {
-#warning Annot is broken FIXME!
-//	annotList->generateAppearances(acroForm);
+      	annotList->generateAppearances(acroForm);
       }
     }
     obj.free();
@@ -431,8 +430,7 @@ void Page::displaySlice(OutputDev *out, double hDPI, double vDPI,
         if ((annotDisplayDecideCbk &&
              (*annotDisplayDecideCbk)(annot, annotDisplayDecideCbkData)) || 
             !annotDisplayDecideCbk) {
-#warning Annot is broken FIXME!
-//           annotList->getAnnot(i)->draw(gfx, printing);
+             annotList->getAnnot(i)->draw(gfx, printing);
     }
     }
     out->dump();

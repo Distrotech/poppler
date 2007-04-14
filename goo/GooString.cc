@@ -169,7 +169,7 @@ GooString::GooString(const char *sA, int lengthA) {
 GooString::GooString(GooString *str, int idx, int lengthA) {
   s = NULL;
   length = 0;
-  assert(idx + lengthA < str->length);
+  assert(idx + lengthA <= str->length);
   Set(str->getCString() + idx, lengthA);
 }
 
