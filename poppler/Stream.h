@@ -540,7 +540,6 @@ private:
   void eatBits(int n) { if ((inputBits -= n) < 0) inputBits = 0; }
 };
 
-#warning LIBJPEG DCTSTream is broken, fix it
 #ifndef ENABLE_LIBJPEG
 //------------------------------------------------------------------------
 // DCTStream
