@@ -10,9 +10,6 @@
 #define DCTSTREAM_H
 #include <config.h>
 
-#warning LIBJPEG DCTSTream is broken, fix it
-#if 0
-
 #ifdef USE_GCC_PRAGMAS
 #pragma interface
 #endif
@@ -53,7 +50,7 @@ struct str_src_mgr {
 class DCTStream: public FilterStream {
 public:
 
-  DCTStream(Stream *strA);
+  DCTStream(Stream *strA, int colorXformA);
   virtual ~DCTStream();
   virtual StreamKind getKind() { return strDCT; }
   virtual void reset();
@@ -72,7 +69,5 @@ private:
   struct str_src_mgr src;
   JSAMPARRAY row_buffer;
 };
-
-#endif // this is the #if 0 endif
 
 #endif 

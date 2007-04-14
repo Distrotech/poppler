@@ -6,9 +6,6 @@
 //
 //========================================================================
 
-#warning LIBJPEG DCTSTream is broken, fix it
-#if 0
-
 #include "DCTStream.h"
 
 static void str_init_source(j_decompress_ptr cinfo)
@@ -55,7 +52,7 @@ static void str_term_source(j_decompress_ptr cinfo)
 {
 }
 
-DCTStream::DCTStream(Stream *strA):
+DCTStream::DCTStream(Stream *strA, int colorXformA) :
   FilterStream(strA) {
   init();
 }
@@ -171,5 +168,3 @@ GooString *DCTStream::getPSFilter(int psLevel, char *indent) {
 GBool DCTStream::isBinary(GBool last) {
   return str->isBinary(gTrue);
 }
-
-#endif // this is the #if 0 endif

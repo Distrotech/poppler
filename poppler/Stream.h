@@ -541,7 +541,7 @@ private:
 };
 
 #warning LIBJPEG DCTSTream is broken, fix it
-// #ifndef ENABLE_LIBJPEG
+#ifndef ENABLE_LIBJPEG
 //------------------------------------------------------------------------
 // DCTStream
 //------------------------------------------------------------------------
@@ -646,7 +646,7 @@ private:
   int read16();
 };
 
-// #endif
+#endif
 
 #ifndef ENABLE_ZLIB
 //------------------------------------------------------------------------

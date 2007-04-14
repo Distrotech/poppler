@@ -33,10 +33,9 @@
 #include "JPXStream.h"
 #include "Stream-CCITT.h"
 
-#warning LIBJPEG DCTSTream is broken, fix it
-// #ifdef ENABLE_LIBJPEG
-// #include "DCTStream.h"
-// #endif
+#ifdef ENABLE_LIBJPEG
+#include "DCTStream.h"
+#endif
 
 #ifdef ENABLE_ZLIB
 #include "FlateStream.h"
@@ -1837,7 +1836,7 @@ GBool CCITTFaxStream::isBinary(GBool last) {
 }
 
 #warning LIBJPEG DCTSTream is broken, fix it
-// #ifndef ENABLE_LIBJPEG
+#ifndef ENABLE_LIBJPEG
 
 //------------------------------------------------------------------------
 // DCTStream
@@ -3254,7 +3253,7 @@ GBool DCTStream::isBinary(GBool last) {
   return str->isBinary(gTrue);
 }
 
-// #endif
+#endif
 
 #ifndef ENABLE_ZLIB
 //------------------------------------------------------------------------
