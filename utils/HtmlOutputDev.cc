@@ -27,6 +27,7 @@
 #include "goo/gmem.h"
 #include "Error.h"
 #include "GfxState.h"
+#include "Page.h"
 #ifdef ENABLE_LIBJPEG
 #include "DCTStream.h"
 #endif
@@ -1036,6 +1037,12 @@ void HtmlOutputDev::startPage(int pageNum, GfxState *state) {
 
 
 void HtmlOutputDev::endPage() {
+  Links *linksList = catalog->getPage(pageNum)->getLinks(catalog);
+  for (int i = 0; i < linksList->getNumLinks(); ++i)
+  {
+      processLink(linksList->getLink(i));
+  }
+
   pages->conv();
   pages->coalesce();
   pages->dump(page, pageNum);
@@ -1267,23 +1274,20 @@ void HtmlOutputDev::drawImage(GfxState *state, Object *ref, Stream *str,
 
 
 
-void HtmlOutputDev::drawLink(Link* link,Catalog *cat){
-#warning THIS WONT WORK OUTPUTDEV DOES NOT HAS drawLink anymore
-/*
-  double _x1,_y1,_x2,_y2,w;
+void HtmlOutputDev::processLink(Link* link){
+  double _x1,_y1,_x2,_y2;
   int x1,y1,x2,y2;
   
   link->getRect(&_x1,&_y1,&_x2,&_y2);
-  w = link->getBorderStyle()->getWidth();
   cvtUserToDev(_x1,_y1,&x1,&y1);
   
   cvtUserToDev(_x2,_y2,&x2,&y2); 
 
 
-  GooString* _dest=getLinkDest(link,cat);
+  GooString* _dest=getLinkDest(link,catalog);
   HtmlLink t((double) x1,(double) y2,(double) x2,(double) y1,_dest);
   pages->AddLink(t);
-  delete _dest;*/
+  delete _dest;
 }
 
 GooString* HtmlOutputDev::getLinkDest(Link *link,Catalog* catalog){
