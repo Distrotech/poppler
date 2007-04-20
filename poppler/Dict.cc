@@ -91,7 +91,7 @@ void Dict::set(char *key, Object *val) {
     e->val.free();
     e->val = *val;
   } else {
-    add (key, val);
+    add (copyString(key), val);
   }
 }
 
