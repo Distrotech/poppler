@@ -7,7 +7,7 @@
 #ifndef SPLASHMATH_H
 #define SPLASHMATH_H
 
-#if USE_FIXEDPONT
+#if USE_FIXEDPOINT
 #include "FixedPoint.h"
 #else
 #include <math.h>
