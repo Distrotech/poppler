@@ -1,6 +1,12 @@
 # Makefile for Visual Studio
 # Written by Krzysztof Kowalczyk (http://blog.kowalczyk.info)
 # This code is in public domain.
+# Use it like this from command line:
+# * add Visual Studio tools to your %PATH%
+# * nmake -f makefile.vc TARGET=rel
+#   or
+# * nmake -f makefile.vc TARGET=dbg
+# * the result is perftest.exe in either rel or dbg directory
 CC = cl.exe
 LD = link.exe
 
