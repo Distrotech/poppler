@@ -1184,7 +1184,7 @@ SplashError Splash::stroke(SplashPath *path) {
   path2 = flattenPath(path, state->matrix, state->flatness);
   if (state->lineDashLength > 0) {
     dPath = makeDashedPath(path2);
-    delete path2;
+    SplashPath::destroy(path2);
     path2 = dPath;
   }
   if (state->lineWidth == 0) {
@@ -1192,7 +1192,7 @@ SplashError Splash::stroke(SplashPath *path) {
   } else {
     strokeWide(path2);
   }
-  delete path2;
+  SplashPath::destroy(path2);
   return splashOk;
 }
 
@@ -1310,7 +1310,7 @@ void Splash::strokeWide(SplashPath *path) {
 
   path2 = makeStrokePath(path, gFalse);
   fillWithPattern(path2, gFalse, state->strokePattern, state->strokeAlpha);
-  delete path2;
+  SplashPath::destroy(path2);
 }
 
 SplashPath *Splash::flattenPath(SplashPath *path, SplashCoord *matrix,
@@ -1320,7 +1320,7 @@ SplashPath *Splash::flattenPath(SplashPath *path, SplashCoord *matrix,
   Guchar flag;
   int i;
 
-  fPath = new SplashPath();
+  fPath = SplashPath::create();
   flatness2 = flatness * flatness;
   i = 0;
   while (i < path->length) {
@@ -1451,7 +1451,7 @@ SplashPath *Splash::makeDashedPath(SplashPath *path) {
     ++lineDashStartIdx;
   }
 
-  dPath = new SplashPath();
+  dPath = SplashPath::create();
 
   // process each subpath
   i = 0;
@@ -3219,7 +3219,7 @@ SplashPath *Splash::makeStrokePath(SplashPath *path, GBool flatten) {
     pathIn = flattenPath(path, state->matrix, state->flatness);
     if (state->lineDashLength > 0) {
       pathOut = makeDashedPath(pathIn);
-      delete pathIn;
+      SplashPath::destroy(pathIn);
       pathIn = pathOut;
     }
   } else {
@@ -3231,7 +3231,7 @@ SplashPath *Splash::makeStrokePath(SplashPath *path, GBool flatten) {
   left0 = left1 = right0 = right1 = join0 = join1 = 0; // make gcc happy
   leftFirst = rightFirst = firstPt = 0; // make gcc happy
 
-  pathOut = new SplashPath();
+  pathOut = SplashPath::create();
   w = state->lineWidth;
 
   for (i = 0; i < pathIn->length - 1; ++i) {
@@ -3491,7 +3491,7 @@ SplashPath *Splash::makeStrokePath(SplashPath *path, GBool flatten) {
   }
 
   if (pathIn != path) {
-    delete pathIn;
+    SplashPath::destroy(pathIn);
   }
 
   return pathOut;

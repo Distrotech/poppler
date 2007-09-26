@@ -15,6 +15,42 @@
 #include "SplashErrorCodes.h"
 #include "SplashPath.h"
 
+// According to my profiling, number of SplahPath objects created at the same
+// time rarely exceeds 4, so this is a good number for the size of the cache
+#define CACHE_SIZE 4
+
+static int cachedCount = 0;
+static SplashPath* splashPathCache[CACHE_SIZE] = { NULL };
+
+SplashPath* SplashPath::create()
+{
+  SplashPath* result = NULL;
+  if (cachedCount > 0) {
+    result = splashPathCache[--cachedCount];
+  } else {
+    result = new SplashPath();
+  }
+  return result;
+}
+
+void SplashPath::destroy(SplashPath* path)
+{
+  if (cachedCount < CACHE_SIZE) {
+    path->Reset();
+    splashPathCache[cachedCount++] = path;
+  }
+  else
+    delete path;
+}
+
+void SplashPath::emptyCache()
+{
+  for (int i=0; i < cachedCount; i++) {
+    delete splashPathCache[i];
+  }
+  cachedCount = 0;    
+}
+
 //------------------------------------------------------------------------
 // SplashPath
 //------------------------------------------------------------------------
@@ -182,3 +218,12 @@ GBool SplashPath::getCurPt(SplashCoord *x, SplashCoord *y) {
   *y = pts[length - 1].y;
   return gTrue;
 }
+
+void SplashPath::Reset()
+{
+  // TODO: possibly free data if size is above some threshold to avoid
+  // cache eating too much memory
+  length = 0;
+  hintsLength = 0;
+}
+

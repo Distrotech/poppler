@@ -1170,7 +1170,7 @@ void SplashOutputDev::stroke(GfxState *state) {
   }
   path = convertPath(state, state->getPath());
   splash->stroke(path);
-  delete path;
+  SplashPath::destroy(path);
 }
 
 void SplashOutputDev::fill(GfxState *state) {
@@ -1181,7 +1181,7 @@ void SplashOutputDev::fill(GfxState *state) {
   }
   path = convertPath(state, state->getPath());
   splash->fill(path, gFalse);
-  delete path;
+  SplashPath::destroy(path);
 }
 
 void SplashOutputDev::eoFill(GfxState *state) {
@@ -1192,7 +1192,7 @@ void SplashOutputDev::eoFill(GfxState *state) {
   }
   path = convertPath(state, state->getPath());
   splash->fill(path, gTrue);
-  delete path;
+  SplashPath::destroy(path);
 }
 
 void SplashOutputDev::clip(GfxState *state) {
@@ -1200,7 +1200,7 @@ void SplashOutputDev::clip(GfxState *state) {
 
   path = convertPath(state, state->getPath());
   splash->clipToPath(path, gFalse);
-  delete path;
+  SplashPath::destroy(path);
 }
 
 void SplashOutputDev::eoClip(GfxState *state) {
@@ -1208,7 +1208,7 @@ void SplashOutputDev::eoClip(GfxState *state) {
 
   path = convertPath(state, state->getPath());
   splash->clipToPath(path, gTrue);
-  delete path;
+  SplashPath::destroy(path);
 }
 
 void SplashOutputDev::clipToStrokePath(GfxState *state) {
@@ -1216,9 +1216,9 @@ void SplashOutputDev::clipToStrokePath(GfxState *state) {
 
   path = convertPath(state, state->getPath());
   path2 = splash->makeStrokePath(path);
-  delete path;
+  SplashPath::destroy(path);
   splash->clipToPath(path2, gFalse);
-  delete path2;
+  SplashPath::destroy(path2);
 }
 
 SplashPath *SplashOutputDev::convertPath(GfxState * /*state*/, GfxPath *path) {
@@ -1226,7 +1226,7 @@ SplashPath *SplashOutputDev::convertPath(GfxState * /*state*/, GfxPath *path) {
   GfxSubpath *subpath;
   int i, j;
 
-  sPath = new SplashPath();
+  sPath = SplashPath::create();
   for (i = 0; i < path->getNumSubpaths(); ++i) {
     subpath = path->getSubpath(i);
     if (subpath->getNumPoints() > 0) {
@@ -1291,9 +1291,9 @@ void SplashOutputDev::drawChar(GfxState *state, double x, double y,
   if ((render & 3) == 1 || (render & 3) == 2) {
     if (!state->getStrokeColorSpace()->isNonMarking()) {
       if ((path = font->getGlyphPath(code))) {
-	path->offset((SplashCoord)x, (SplashCoord)y);
-	splash->stroke(path);
-	delete path;
+        path->offset((SplashCoord)x, (SplashCoord)y);
+        splash->stroke(path);
+        SplashPath::destroy(path);
       }
     }
   }
@@ -1303,10 +1303,10 @@ void SplashOutputDev::drawChar(GfxState *state, double x, double y,
     if ((path = font->getGlyphPath(code))) {
       path->offset((SplashCoord)x, (SplashCoord)y);
       if (textClipPath) {
-	textClipPath->append(path);
-	delete path;
+        textClipPath->append(path);
+        SplashPath::destroy(path);
       } else {
-	textClipPath = path;
+        textClipPath = path;
       }
     }
   }
@@ -1585,7 +1585,7 @@ void SplashOutputDev::drawType3Glyph(T3FontCache *t3Font,
 void SplashOutputDev::endTextObject(GfxState *state) {
   if (textClipPath) {
     splash->clipToPath(textClipPath, gFalse);
-    delete textClipPath;
+    SplashPath::destroy(textClipPath);
     textClipPath = NULL;
   }
 }

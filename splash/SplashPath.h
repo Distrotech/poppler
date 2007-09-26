@@ -54,13 +54,12 @@ struct SplashPathHint {
 class SplashPath {
 public:
 
-  // Create an empty path.
-  SplashPath();
+  static SplashPath* create();
+  static void destroy(SplashPath* path);
+  static void emptyCache();
 
   // Copy a path.
   SplashPath *copy() { return new SplashPath(this); }
-
-  ~SplashPath();
 
   // Append <path> to <this>.
   void append(SplashPath *path);
@@ -96,9 +95,15 @@ public:
   // Get the current point.
   GBool getCurPt(SplashCoord *x, SplashCoord *y);
 
+  void Reset();
 private:
 
+  // Create an empty path.
+  SplashPath();
   SplashPath(SplashPath *path);
+
+  ~SplashPath();
+
   void grow(int nPts);
   GBool noCurrentPoint() { return curSubpath == length; }
   GBool onePointSubpath() { return curSubpath == length - 1; }

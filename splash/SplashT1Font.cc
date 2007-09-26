@@ -238,7 +238,7 @@ SplashPath *SplashT1Font::getGlyphPath(int c) {
     T1_TransformFont(outlineID, &matrix);
   }
 
-  path = new SplashPath();
+  path = SplashPath::create();
   if ((outline = T1_GetCharOutline(outlineID, c, outlineSize, NULL))) {
     x = 0;
     y = 0;
