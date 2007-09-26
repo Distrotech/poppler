@@ -348,7 +348,7 @@ void strcat_s(char *dst, size_t dst_size, const char* src)
 }
 #endif
 
-static SplashColorMode gSplashColorMode = splashModeBGR8;
+static SplashColorMode gSplashColorMode = splashModeRGB8;
 
 static SplashColor splashColRed;
 static SplashColor splashColGreen;
