@@ -1732,7 +1732,8 @@ void AnnotWidget::initialize(XRef *xrefA, Catalog *catalog, Dict *dict) {
   Object obj1;
 
   form = catalog->getForm ();
-  widget = form->findWidgetByRef (ref);
+  if (form) widget = form->findWidgetByRef (ref);
+  else widget = NULL;
 
   // check if field apperances need to be regenerated
   // Only text or choice fields needs to have appearance regenerated
