@@ -1012,6 +1012,7 @@ PSOutputDev::PSOutputDev(const char *fileName, PDFDoc *doc, XRef *xrefA, Catalog
   fontIDs = NULL;
   fontFileIDs = NULL;
   fontFileNames = NULL;
+  fontFileNameLen = 0;
   font8Info = NULL;
   font16Enc = NULL;
   imgIDs = NULL;
@@ -1022,6 +1023,7 @@ PSOutputDev::PSOutputDev(const char *fileName, PDFDoc *doc, XRef *xrefA, Catalog
   haveTextClip = gFalse;
   haveCSPattern = gFalse;
   t3String = NULL;
+  psFileNames = NULL;
 
   forceRasterize = forceRasterizeA;
 
@@ -1077,6 +1079,7 @@ PSOutputDev::PSOutputDev(PSOutputFunc outputFuncA, void *outputStreamA,
   fontIDs = NULL;
   fontFileIDs = NULL;
   fontFileNames = NULL;
+  fontFileNameLen = 0;
   font8Info = NULL;
   font16Enc = NULL;
   imgIDs = NULL;
@@ -1087,6 +1090,7 @@ PSOutputDev::PSOutputDev(PSOutputFunc outputFuncA, void *outputStreamA,
   haveTextClip = gFalse;
   haveCSPattern = gFalse;
   t3String = NULL;
+  psFileNames = NULL;
 
   forceRasterize = forceRasterizeA;
 
