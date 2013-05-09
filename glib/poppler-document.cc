@@ -1220,6 +1220,28 @@ poppler_document_get_metadata (PopplerDocument *document)
   return retval;
 }
 
+/**
+ * poppler_document_get_structure:
+ * @document: A #PopplerDocument
+ *
+ * Returns the #PopplerStructure of the document. This object is owned by
+ * the called.
+ *
+ * Return value: (transfer full): The #PopplerStructure of the document.
+ */
+PopplerStructure *
+poppler_document_get_structure (PopplerDocument *document)
+{
+  StructTreeRoot *tree_root;
+
+  g_return_val_if_fail (POPPLER_IS_DOCUMENT (document), NULL);
+
+  tree_root = document->doc->getStructTreeRoot ();
+  if (!tree_root) return NULL;
+
+  return _poppler_structure_new (document, tree_root);
+}
+
 static void
 poppler_document_get_property (GObject    *object,
 			       guint       prop_id,

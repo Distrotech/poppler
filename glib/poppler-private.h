@@ -17,6 +17,7 @@
 #include <OptionalContent.h>
 #include <CairoOutputDev.h>
 #include <FileSpec.h>
+#include <StructElement.h>
 #endif
 
 struct _PopplerDocument
@@ -95,6 +96,33 @@ struct _PopplerLayer
   gchar *title;
 };
 
+struct _PopplerStructure
+{
+  /*< private >*/
+  GObject parent_instance;
+  PopplerDocument *document;
+  StructTreeRoot *root;
+  PopplerStructureElement **children;
+};
+
+struct _PopplerStructureElement
+{
+  /*< private >*/
+  GObject parent_instance;
+  StructElement *elem;
+  gchar *id;
+  gchar *title;
+  gchar *text;
+  gchar *text_r;
+  gchar *text_abbrev;
+  gchar *alt_text;
+  gchar *actual_text;
+  gchar *language;
+  GList *text_spans;
+  PopplerStructure *structure;
+  PopplerStructureElement **children;
+};
+
 GList         *_poppler_document_get_layers (PopplerDocument *document);
 GList         *_poppler_document_get_layer_rbgroup (PopplerDocument *document,
 						    Layer           *layer);
@@ -120,6 +148,10 @@ PopplerAnnot      *_poppler_annot_free_text_new (Annot *annot);
 PopplerAnnot      *_poppler_annot_file_attachment_new (Annot *annot);
 PopplerAnnot      *_poppler_annot_movie_new (Annot *annot);
 PopplerAnnot      *_poppler_annot_screen_new (Annot *annot);
+PopplerStructure  *_poppler_structure_new (PopplerDocument *poppler_document,
+                                           StructTreeRoot  *struct_tree_root);
+PopplerStructureElement *_poppler_structure_element_new (PopplerStructure *structure,
+							 StructElement *struct_element);
 
 char *_poppler_goo_string_to_utf8(GooString *s);
 gboolean _poppler_convert_pdf_date_to_gtime (GooString *date,

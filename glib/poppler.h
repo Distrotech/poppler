@@ -202,6 +202,8 @@ typedef struct _PopplerAnnotFileAttachment PopplerAnnotFileAttachment;
 typedef struct _PopplerAnnotMovie          PopplerAnnotMovie;
 typedef struct _PopplerAnnotScreen         PopplerAnnotScreen;
 typedef struct _PopplerAnnotCalloutLine    PopplerAnnotCalloutLine;
+typedef struct _PopplerStructure           PopplerStructure;
+typedef struct _PopplerStructureElement    PopplerStructureElement;
 
 typedef enum
 {
@@ -227,5 +229,6 @@ G_END_DECLS
 #include "poppler-date.h"
 #include "poppler-movie.h"
 #include "poppler-media.h"
+#include "poppler-structure.h"
 
 #endif /* __POPPLER_GLIB_H__ */

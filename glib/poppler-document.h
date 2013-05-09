@@ -213,6 +213,7 @@ PopplerPageLayout  poppler_document_get_page_layout        (PopplerDocument *doc
 PopplerPageMode    poppler_document_get_page_mode          (PopplerDocument *document);
 PopplerPermissions poppler_document_get_permissions        (PopplerDocument *document);
 gchar             *poppler_document_get_metadata           (PopplerDocument *document);
+PopplerStructure  *poppler_document_get_structure          (PopplerDocument *document);
 
 /* Attachments */
 guint              poppler_document_get_n_attachments      (PopplerDocument  *document);

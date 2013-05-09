@@ -41,6 +41,8 @@ poppler_glib_public_headers =			\
 	poppler-layer.h				\
 	poppler-media.h				\
 	poppler-movie.h				\
+	poppler-structure.h			\
+	poppler-structure-element.h		\
 	poppler.h
 
 poppler_glib_includedir = $(includedir)/poppler/glib
@@ -67,6 +69,8 @@ libpoppler_glib_la_SOURCES =			\
 	poppler-cached-file-loader.h		\
 	poppler-input-stream.cc			\
 	poppler-input-stream.h			\
+	poppler-structure.cc			\
+	poppler-structure-element.cc		\
 	poppler.cc				\
 	poppler-private.h
 
