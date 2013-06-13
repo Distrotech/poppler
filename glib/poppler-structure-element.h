@@ -337,6 +337,8 @@ gint                        poppler_structure_element_get_page            (Poppl
 gboolean                    poppler_structure_element_is_content          (PopplerStructureElement  *poppler_structure_element);
 gboolean                    poppler_structure_element_is_inline           (PopplerStructureElement  *poppler_structure_element);
 gboolean                    poppler_structure_element_is_block            (PopplerStructureElement  *poppler_structure_element);
+gboolean                    poppler_structure_element_is_data_table       (PopplerStructureElement  *poppler_structure_element);
+gboolean                    poppler_structure_element_is_layout_table     (PopplerStructureElement  *poppler_structure_element);
 guint                       poppler_structure_element_get_n_children      (PopplerStructureElement  *poppler_structure_element);
 PopplerStructureElement    *poppler_structure_element_get_child           (PopplerStructureElement  *poppler_structure_element,
                                                                            guint                     index);

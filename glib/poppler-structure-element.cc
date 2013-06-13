@@ -769,6 +769,77 @@ poppler_structure_element_is_block (PopplerStructureElement *poppler_structure_e
   return poppler_structure_element->elem->isBlock ();
 }
 
+
+static guint
+data_table_score (const StructElement *elem, gboolean *has_th)
+{
+  g_assert (elem);
+  g_assert (has_th);
+
+  guint score = 0;
+  for (unsigned i = 0; i < elem->getNumElements (); i++)
+    score += data_table_score (elem->getElement (i), has_th);
+
+  switch (elem->getType ())
+    {
+      case StructElement::THead: score++; break;
+      case StructElement::TBody: score++; break;
+      case StructElement::TH: *has_th = TRUE; break;
+      default: break;
+    }
+
+  return score;
+}
+
+/**
+ * poppler_structure_element_is_data_table:
+ * @poppler_structure_element: A #PopplerStructureElement
+ *
+ * Note that there is no proper metadata in PDF documents which identify
+ * data tables, so heuristics are used to determine whether a table is
+ * <em>likely</em> to contain data.
+ *
+ * Return value: Whether an element is a %POPPLER_STRUCTURE_ELEMENT_TABLE
+ *    and the table contains series of data.
+ */
+gboolean
+poppler_structure_element_is_data_table (PopplerStructureElement *poppler_structure_element)
+{
+  g_return_val_if_fail (POPPLER_IS_STRUCTURE_ELEMENT (poppler_structure_element), FALSE);
+  g_assert (poppler_structure_element->elem);
+
+  if (poppler_structure_element->elem->getType () != StructElement::Table)
+    return FALSE;
+
+  /*
+   * Data tables are likely to have table-header cells, and at least have
+   * the contents divided in THead and/or TBody elements. The scoring
+   * function counts the later and also sets has_th to TRUE. If the score
+   * is more than zero and there is header cells, assume there is a data
+   * table.
+   */
+  gboolean has_th = FALSE;
+  return data_table_score (poppler_structure_element->elem, &has_th) && has_th;
+}
+
+/**
+ * poppler_structure_element_is_layout_table:
+ * @poppler_structure_element: A #PopplerStructureElement
+ *
+ * Note that there is no proper metadata in PDF documents which identify
+ * layout tables, so heuristics are used to determine whether a table is
+ * <em>likely</em> to be used for layout purposes.
+ *
+ * Return value: Whether an element is a %POPPLER_STRUCTURE_ELEMENT_TABLE
+ *    and the table is used as aid for layout of page elements.
+ */
+gboolean
+poppler_structure_element_is_layout_table (PopplerStructureElement *poppler_structure_element)
+{
+  g_return_val_if_fail (POPPLER_IS_STRUCTURE_ELEMENT (poppler_structure_element), FALSE);
+  return !poppler_structure_element_is_data_table (poppler_structure_element);
+}
+
 /**
  * poppler_structure_element_get_n_children:
  * @poppler_structure_element: A #PopplerStructureElement
