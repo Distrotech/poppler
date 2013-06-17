@@ -14,6 +14,8 @@
 
 #include "StructElement.h"
 #include "StructTreeRoot.h"
+#include "GlobalParams.h"
+#include "UnicodeMap.h"
 #include "PDFDoc.h"
 #include "Dict.h"
 
@@ -978,6 +980,71 @@ const Attribute *StructElement::findAttribute(Attribute::Type attributeType, GBo
     }
   }
   return NULL;
+}
+
+GooString *StructElement::getText(GooString *string, GBool recursive) const
+{
+  if (isContent() && !isObjectRef()) {
+    const MCOpArray& ops(getMCOps());
+    if (!ops.size())
+      return NULL;
+
+    UnicodeMap *map = globalParams->getTextEncoding();
+    if (!map) {
+      GooString mapName("UTF-8");
+      map = UnicodeMap::parse(&mapName);
+    }
+    assert(map);
+
+    if (!string)
+      string = new GooString();
+
+    char buf[9];
+    int n;
+
+    for (MCOpArray::const_iterator i = ops.begin(); i != ops.end(); ++i) {
+      if (i->type == MCOp::Unichar) {
+        n = map->mapUnicode(i->unichar, buf, sizeof(buf));
+        string->append(buf, n);
+      }
+    }
+    map->decRefCnt();
+    return string;
+  }
+
+  if (!recursive)
+    return NULL;
+
+  // Do a depth-first traversal, to get elements in logical order
+  if (!string)
+    string = new GooString();
+
+  for (unsigned i = 0; i < getNumElements(); i++)
+    getElement(i)->getText(string, recursive);
+
+  return string;
+}
+
+const MCOpArray StructElement::getMCOps() const
+{
+  if (!isContent())
+    return MCOpArray(); // Empty array
+
+  MCOutputDev mcdev(getMCID());
+  int startPage = 0, endPage = 0;
+
+  if (hasPageRef()) {
+    Ref ref = getPageRef();
+    startPage = endPage = treeRoot->getDoc()->findPage(ref.num, ref.gen);
+  }
+
+  if (!(startPage && endPage)) {
+    startPage = 1;
+    endPage = treeRoot->getDoc()->getNumPages();
+  }
+
+  treeRoot->getDoc()->displayPages(&mcdev, startPage, endPage, 72.0, 72.0, 0, gTrue, gFalse, gFalse);
+  return mcdev.getMCOps();
 }
 
 static StructElement::Type roleMapResolve(Dict *roleMap, const char *name, const char *curName, Object *resolved)

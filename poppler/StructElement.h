@@ -17,6 +17,7 @@
 
 #include "goo/gtypes.h"
 #include "goo/GooString.h"
+#include "MCOutputDev.h"
 #include "Object.h"
 #include <vector>
 #include <set>
@@ -219,6 +220,24 @@ public:
 
   const GooString *getActualText() const { return isContent() ? NULL : s->actualText; }
   GooString *getActualText() { return isContent() ? NULL : s->actualText; }
+
+  // Content text referenced by the element:
+  //
+  // - For MCID reference elements, this is just the text of the
+  //   corresponding marked content object in the page stream, regardless
+  //   of the setting of the "recursive" flag.
+  // - For other elements, if the "recursive" flag is set, the text
+  //   enclosed by *all* the child MCID reference elements of the subtree
+  //   is returned. The text is assembled by traversing the leaf MCID
+  //   reference elements in logical order.
+  // - In any other case, the function returns NULL.
+  //
+  // The text will be appended to the passed GooString. If NULL is passed,
+  // a new string is returned, and the ownership passed to the caller.
+  //
+  GooString *getText(GooString *string = NULL, GBool recursive = gTrue) const;
+
+  const MCOpArray getMCOps() const;
 
   ~StructElement();
 

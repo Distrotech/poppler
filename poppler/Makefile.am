@@ -232,6 +232,7 @@ poppler_include_HEADERS =	\
 	NameToUnicodeTable.h	\
 	PSOutputDev.h		\
 	TextOutputDev.h		\
+	MCOutputDev.h		\
 	SecurityHandler.h	\
 	UTF.h			\
 	UTF8.h			\
@@ -306,6 +307,7 @@ libpoppler_la_SOURCES =		\
 	XRef.cc			\
 	PSOutputDev.cc		\
 	TextOutputDev.cc	\
+	MCOutputDev.cc		\
 	PageLabelInfo.h		\
 	PageLabelInfo.cc	\
 	SecurityHandler.cc	\
