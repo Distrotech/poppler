@@ -18,7 +18,7 @@
 #include "PDFDoc.h"
 #include "Object.h"
 #include "Dict.h"
-
+#include <set>
 #include <assert.h>
 
 
@@ -103,6 +103,8 @@ void StructTreeRoot::parse(Dict *root)
   }
   obj.free();
 
+  std::set<int> seenElements;
+
   // Parse the children StructElements
   const GBool marked = doc->getCatalog()->getMarkInfo() & Catalog::markInfoMarked;
   Object kids;
@@ -113,8 +115,10 @@ void StructTreeRoot::parse(Dict *root)
     for (int i = 0; i < kids.arrayGetLength(); i++) {
       Object obj, ref;
       kids.arrayGetNF(i, &ref);
+      assert(ref.isRef());
+      seenElements.insert(ref.getRefNum());
       if (kids.arrayGet(i, &obj)->isDict()) {
-        StructElement *child = new StructElement(obj.getDict(), this);
+        StructElement *child = new StructElement(obj.getDict(), this, NULL, seenElements);
         if (child->isOk()) {
           if (marked && !(child->getType() == StructElement::Document ||
                           child->getType() == StructElement::Part ||
@@ -140,7 +144,7 @@ void StructTreeRoot::parse(Dict *root)
     if (marked) {
       error(errSyntaxWarning, -1, "K has a child of wrong type for a tagged PDF ({0:s})", kids.getTypeName());
     }
-    StructElement *child = new StructElement(kids.getDict(), this);
+    StructElement *child = new StructElement(kids.getDict(), this, NULL, seenElements);
     if (child->isOk()) {
       appendElement(child);
       Object ref;

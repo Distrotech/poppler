@@ -297,6 +297,7 @@ libpoppler_la_SOURCES =		\
 	StdinPDFDocBuilder.cc	\
 	Stream.cc 		\
 	StructTreeRoot.cc	\
+	StructElement.cc	\
 	strtok_r.cpp		\
 	UnicodeMap.cc		\
 	UnicodeTypeTable.cc	\
