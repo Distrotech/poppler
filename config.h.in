@@ -70,6 +70,9 @@
 /* Defines if localtime_r is available on your system */
 #undef HAVE_LOCALTIME_R
 
+/* Define to 1 if you have the `lseek64' function. */
+#undef HAVE_LSEEK64
+
 /* Define to 1 if you have the <memory.h> header file. */
 #undef HAVE_MEMORY_H
 
@@ -88,8 +91,14 @@
 /* Define to 1 if you have the `popen' function. */
 #undef HAVE_POPEN
 
+/* Define to 1 if you have the `pread64' function. */
+#undef HAVE_PREAD64
+
 /* Define if you have POSIX threads libraries and header files. */
 #undef HAVE_PTHREAD
+
+/* Have PTHREAD_PRIO_INHERIT. */
+#undef HAVE_PTHREAD_PRIO_INHERIT
 
 /* Defines if rand_r is available on your system */
 #undef HAVE_RAND_R
