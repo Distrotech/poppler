@@ -78,29 +78,29 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-noinst_PROGRAMS = test-poppler-qt4$(EXEEXT) \
-	stress-poppler-qt4$(EXEEXT) poppler-fonts$(EXEEXT) \
-	test-password-qt4$(EXEEXT) stress-poppler-dir$(EXEEXT) \
+noinst_PROGRAMS = test-poppler-qt5$(EXEEXT) \
+	stress-poppler-qt5$(EXEEXT) poppler-fonts$(EXEEXT) \
+	test-password-qt5$(EXEEXT) stress-poppler-dir$(EXEEXT) \
 	poppler-attachments$(EXEEXT) poppler-texts$(EXEEXT) \
-	poppler-forms$(EXEEXT) stress-threads-qt4$(EXEEXT)
-@BUILD_POPPLER_QT4_TRUE@TESTS = check_attachments$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_actualtext$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_dateConversion$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_fonts$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_links$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_metadata$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_optcontent$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_permissions$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_pagelabelinfo$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_pagemode$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_password$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_pagelayout$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_search$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_strings$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_lexer$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_goostring$(EXEEXT)
-@BUILD_POPPLER_QT4_TRUE@check_PROGRAMS = $(am__EXEEXT_1)
-subdir = qt4/tests
+	poppler-forms$(EXEEXT) stress-threads-qt5$(EXEEXT)
+@BUILD_POPPLER_QT5_TRUE@TESTS = check_attachments$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_actualtext$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_dateConversion$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_fonts$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_links$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_metadata$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_optcontent$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_permissions$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_pagelabelinfo$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_pagemode$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_password$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_pagelayout$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_search$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_strings$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_lexer$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_goostring$(EXEEXT)
+@BUILD_POPPLER_QT5_TRUE@check_PROGRAMS = $(am__EXEEXT_1)
+subdir = qt5/tests
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/depcomp $(top_srcdir)/test-driver
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -118,143 +118,143 @@ CONFIG_HEADER = $(top_builddir)/config.h \
 	$(top_builddir)/poppler/poppler-config.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
-@BUILD_POPPLER_QT4_TRUE@am__EXEEXT_1 = check_attachments$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_actualtext$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_dateConversion$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_fonts$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_links$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_metadata$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_optcontent$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_permissions$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_pagelabelinfo$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_pagemode$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_password$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_pagelayout$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_search$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_strings$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_lexer$(EXEEXT) \
-@BUILD_POPPLER_QT4_TRUE@	check_goostring$(EXEEXT)
+@BUILD_POPPLER_QT5_TRUE@am__EXEEXT_1 = check_attachments$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_actualtext$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_dateConversion$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_fonts$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_links$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_metadata$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_optcontent$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_permissions$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_pagelabelinfo$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_pagemode$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_password$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_pagelayout$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_search$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_strings$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_lexer$(EXEEXT) \
+@BUILD_POPPLER_QT5_TRUE@	check_goostring$(EXEEXT)
 PROGRAMS = $(noinst_PROGRAMS)
 am__check_actualtext_SOURCES_DIST = check_actualtext.cpp
-@BUILD_POPPLER_QT4_TRUE@am_check_actualtext_OBJECTS =  \
-@BUILD_POPPLER_QT4_TRUE@	check_actualtext.$(OBJEXT)
+@BUILD_POPPLER_QT5_TRUE@am_check_actualtext_OBJECTS =  \
+@BUILD_POPPLER_QT5_TRUE@	check_actualtext.$(OBJEXT)
 check_actualtext_OBJECTS = $(am_check_actualtext_OBJECTS)
 am__DEPENDENCIES_1 =
 am__DEPENDENCIES_2 = $(top_builddir)/poppler/libpoppler.la \
-	$(top_builddir)/qt4/src/libpoppler-qt4.la \
+	$(top_builddir)/qt5/src/libpoppler-qt5.la \
 	$(am__DEPENDENCIES_1)
-@BUILD_POPPLER_QT4_TRUE@check_actualtext_DEPENDENCIES =  \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_2) \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_1)
+@BUILD_POPPLER_QT5_TRUE@check_actualtext_DEPENDENCIES =  \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_2) \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_1)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
 am__check_attachments_SOURCES_DIST = check_attachments.cpp
-@BUILD_POPPLER_QT4_TRUE@am_check_attachments_OBJECTS =  \
-@BUILD_POPPLER_QT4_TRUE@	check_attachments.$(OBJEXT)
+@BUILD_POPPLER_QT5_TRUE@am_check_attachments_OBJECTS =  \
+@BUILD_POPPLER_QT5_TRUE@	check_attachments.$(OBJEXT)
 check_attachments_OBJECTS = $(am_check_attachments_OBJECTS)
-@BUILD_POPPLER_QT4_TRUE@check_attachments_DEPENDENCIES =  \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_2) \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_1)
+@BUILD_POPPLER_QT5_TRUE@check_attachments_DEPENDENCIES =  \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_2) \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_1)
 am__check_dateConversion_SOURCES_DIST = check_dateConversion.cpp
-@BUILD_POPPLER_QT4_TRUE@am_check_dateConversion_OBJECTS =  \
-@BUILD_POPPLER_QT4_TRUE@	check_dateConversion.$(OBJEXT)
+@BUILD_POPPLER_QT5_TRUE@am_check_dateConversion_OBJECTS =  \
+@BUILD_POPPLER_QT5_TRUE@	check_dateConversion.$(OBJEXT)
 check_dateConversion_OBJECTS = $(am_check_dateConversion_OBJECTS)
-@BUILD_POPPLER_QT4_TRUE@check_dateConversion_DEPENDENCIES =  \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_2) \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_1)
+@BUILD_POPPLER_QT5_TRUE@check_dateConversion_DEPENDENCIES =  \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_2) \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_1)
 am__check_fonts_SOURCES_DIST = check_fonts.cpp
-@BUILD_POPPLER_QT4_TRUE@am_check_fonts_OBJECTS =  \
-@BUILD_POPPLER_QT4_TRUE@	check_fonts.$(OBJEXT)
+@BUILD_POPPLER_QT5_TRUE@am_check_fonts_OBJECTS =  \
+@BUILD_POPPLER_QT5_TRUE@	check_fonts.$(OBJEXT)
 check_fonts_OBJECTS = $(am_check_fonts_OBJECTS)
-@BUILD_POPPLER_QT4_TRUE@check_fonts_DEPENDENCIES =  \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_2) \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_1)
+@BUILD_POPPLER_QT5_TRUE@check_fonts_DEPENDENCIES =  \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_2) \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_1)
 am__check_goostring_SOURCES_DIST = check_goostring.cpp
-@BUILD_POPPLER_QT4_TRUE@am_check_goostring_OBJECTS =  \
-@BUILD_POPPLER_QT4_TRUE@	check_goostring.$(OBJEXT)
+@BUILD_POPPLER_QT5_TRUE@am_check_goostring_OBJECTS =  \
+@BUILD_POPPLER_QT5_TRUE@	check_goostring.$(OBJEXT)
 check_goostring_OBJECTS = $(am_check_goostring_OBJECTS)
-@BUILD_POPPLER_QT4_TRUE@check_goostring_DEPENDENCIES =  \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_2) \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_1)
+@BUILD_POPPLER_QT5_TRUE@check_goostring_DEPENDENCIES =  \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_2) \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_1)
 am__check_lexer_SOURCES_DIST = check_lexer.cpp
-@BUILD_POPPLER_QT4_TRUE@am_check_lexer_OBJECTS =  \
-@BUILD_POPPLER_QT4_TRUE@	check_lexer.$(OBJEXT)
+@BUILD_POPPLER_QT5_TRUE@am_check_lexer_OBJECTS =  \
+@BUILD_POPPLER_QT5_TRUE@	check_lexer.$(OBJEXT)
 check_lexer_OBJECTS = $(am_check_lexer_OBJECTS)
-@BUILD_POPPLER_QT4_TRUE@check_lexer_DEPENDENCIES =  \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_2) \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_1)
+@BUILD_POPPLER_QT5_TRUE@check_lexer_DEPENDENCIES =  \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_2) \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_1)
 am__check_links_SOURCES_DIST = check_links.cpp
-@BUILD_POPPLER_QT4_TRUE@am_check_links_OBJECTS =  \
-@BUILD_POPPLER_QT4_TRUE@	check_links.$(OBJEXT)
+@BUILD_POPPLER_QT5_TRUE@am_check_links_OBJECTS =  \
+@BUILD_POPPLER_QT5_TRUE@	check_links.$(OBJEXT)
 check_links_OBJECTS = $(am_check_links_OBJECTS)
-@BUILD_POPPLER_QT4_TRUE@check_links_DEPENDENCIES =  \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_2) \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_1)
+@BUILD_POPPLER_QT5_TRUE@check_links_DEPENDENCIES =  \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_2) \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_1)
 am__check_metadata_SOURCES_DIST = check_metadata.cpp
-@BUILD_POPPLER_QT4_TRUE@am_check_metadata_OBJECTS =  \
-@BUILD_POPPLER_QT4_TRUE@	check_metadata.$(OBJEXT)
+@BUILD_POPPLER_QT5_TRUE@am_check_metadata_OBJECTS =  \
+@BUILD_POPPLER_QT5_TRUE@	check_metadata.$(OBJEXT)
 check_metadata_OBJECTS = $(am_check_metadata_OBJECTS)
-@BUILD_POPPLER_QT4_TRUE@check_metadata_DEPENDENCIES =  \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_2) \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_1)
+@BUILD_POPPLER_QT5_TRUE@check_metadata_DEPENDENCIES =  \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_2) \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_1)
 am__check_optcontent_SOURCES_DIST = check_optcontent.cpp
-@BUILD_POPPLER_QT4_TRUE@am_check_optcontent_OBJECTS =  \
-@BUILD_POPPLER_QT4_TRUE@	check_optcontent.$(OBJEXT)
+@BUILD_POPPLER_QT5_TRUE@am_check_optcontent_OBJECTS =  \
+@BUILD_POPPLER_QT5_TRUE@	check_optcontent.$(OBJEXT)
 check_optcontent_OBJECTS = $(am_check_optcontent_OBJECTS)
-@BUILD_POPPLER_QT4_TRUE@check_optcontent_DEPENDENCIES =  \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_2) \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_1)
+@BUILD_POPPLER_QT5_TRUE@check_optcontent_DEPENDENCIES =  \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_2) \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_1)
 am__check_pagelabelinfo_SOURCES_DIST = check_pagelabelinfo.cpp
-@BUILD_POPPLER_QT4_TRUE@am_check_pagelabelinfo_OBJECTS =  \
-@BUILD_POPPLER_QT4_TRUE@	check_pagelabelinfo.$(OBJEXT)
+@BUILD_POPPLER_QT5_TRUE@am_check_pagelabelinfo_OBJECTS =  \
+@BUILD_POPPLER_QT5_TRUE@	check_pagelabelinfo.$(OBJEXT)
 check_pagelabelinfo_OBJECTS = $(am_check_pagelabelinfo_OBJECTS)
-@BUILD_POPPLER_QT4_TRUE@check_pagelabelinfo_DEPENDENCIES =  \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_2) \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_1)
+@BUILD_POPPLER_QT5_TRUE@check_pagelabelinfo_DEPENDENCIES =  \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_2) \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_1)
 am__check_pagelayout_SOURCES_DIST = check_pagelayout.cpp
-@BUILD_POPPLER_QT4_TRUE@am_check_pagelayout_OBJECTS =  \
-@BUILD_POPPLER_QT4_TRUE@	check_pagelayout.$(OBJEXT)
+@BUILD_POPPLER_QT5_TRUE@am_check_pagelayout_OBJECTS =  \
+@BUILD_POPPLER_QT5_TRUE@	check_pagelayout.$(OBJEXT)
 check_pagelayout_OBJECTS = $(am_check_pagelayout_OBJECTS)
-@BUILD_POPPLER_QT4_TRUE@check_pagelayout_DEPENDENCIES =  \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_2) \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_1)
+@BUILD_POPPLER_QT5_TRUE@check_pagelayout_DEPENDENCIES =  \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_2) \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_1)
 am__check_pagemode_SOURCES_DIST = check_pagemode.cpp
-@BUILD_POPPLER_QT4_TRUE@am_check_pagemode_OBJECTS =  \
-@BUILD_POPPLER_QT4_TRUE@	check_pagemode.$(OBJEXT)
+@BUILD_POPPLER_QT5_TRUE@am_check_pagemode_OBJECTS =  \
+@BUILD_POPPLER_QT5_TRUE@	check_pagemode.$(OBJEXT)
 check_pagemode_OBJECTS = $(am_check_pagemode_OBJECTS)
-@BUILD_POPPLER_QT4_TRUE@check_pagemode_DEPENDENCIES =  \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_2) \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_1)
+@BUILD_POPPLER_QT5_TRUE@check_pagemode_DEPENDENCIES =  \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_2) \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_1)
 am__check_password_SOURCES_DIST = check_password.cpp
-@BUILD_POPPLER_QT4_TRUE@am_check_password_OBJECTS =  \
-@BUILD_POPPLER_QT4_TRUE@	check_password.$(OBJEXT)
+@BUILD_POPPLER_QT5_TRUE@am_check_password_OBJECTS =  \
+@BUILD_POPPLER_QT5_TRUE@	check_password.$(OBJEXT)
 check_password_OBJECTS = $(am_check_password_OBJECTS)
-@BUILD_POPPLER_QT4_TRUE@check_password_DEPENDENCIES =  \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_2) \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_1)
+@BUILD_POPPLER_QT5_TRUE@check_password_DEPENDENCIES =  \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_2) \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_1)
 am__check_permissions_SOURCES_DIST = check_permissions.cpp
-@BUILD_POPPLER_QT4_TRUE@am_check_permissions_OBJECTS =  \
-@BUILD_POPPLER_QT4_TRUE@	check_permissions.$(OBJEXT)
+@BUILD_POPPLER_QT5_TRUE@am_check_permissions_OBJECTS =  \
+@BUILD_POPPLER_QT5_TRUE@	check_permissions.$(OBJEXT)
 check_permissions_OBJECTS = $(am_check_permissions_OBJECTS)
-@BUILD_POPPLER_QT4_TRUE@check_permissions_DEPENDENCIES =  \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_2) \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_1)
+@BUILD_POPPLER_QT5_TRUE@check_permissions_DEPENDENCIES =  \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_2) \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_1)
 am__check_search_SOURCES_DIST = check_search.cpp
-@BUILD_POPPLER_QT4_TRUE@am_check_search_OBJECTS =  \
-@BUILD_POPPLER_QT4_TRUE@	check_search.$(OBJEXT)
+@BUILD_POPPLER_QT5_TRUE@am_check_search_OBJECTS =  \
+@BUILD_POPPLER_QT5_TRUE@	check_search.$(OBJEXT)
 check_search_OBJECTS = $(am_check_search_OBJECTS)
-@BUILD_POPPLER_QT4_TRUE@check_search_DEPENDENCIES =  \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_2) \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_1)
+@BUILD_POPPLER_QT5_TRUE@check_search_DEPENDENCIES =  \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_2) \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_1)
 am__check_strings_SOURCES_DIST = check_strings.cpp
-@BUILD_POPPLER_QT4_TRUE@am_check_strings_OBJECTS =  \
-@BUILD_POPPLER_QT4_TRUE@	check_strings.$(OBJEXT)
+@BUILD_POPPLER_QT5_TRUE@am_check_strings_OBJECTS =  \
+@BUILD_POPPLER_QT5_TRUE@	check_strings.$(OBJEXT)
 check_strings_OBJECTS = $(am_check_strings_OBJECTS)
-@BUILD_POPPLER_QT4_TRUE@check_strings_DEPENDENCIES =  \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_2) \
-@BUILD_POPPLER_QT4_TRUE@	$(am__DEPENDENCIES_1)
+@BUILD_POPPLER_QT5_TRUE@check_strings_DEPENDENCIES =  \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_2) \
+@BUILD_POPPLER_QT5_TRUE@	$(am__DEPENDENCIES_1)
 am_poppler_attachments_OBJECTS = poppler-attachments.$(OBJEXT)
 poppler_attachments_OBJECTS = $(am_poppler_attachments_OBJECTS)
 poppler_attachments_DEPENDENCIES = $(am__DEPENDENCIES_2)
@@ -270,18 +270,18 @@ poppler_texts_DEPENDENCIES = $(am__DEPENDENCIES_2)
 am_stress_poppler_dir_OBJECTS = stress-poppler-dir.$(OBJEXT)
 stress_poppler_dir_OBJECTS = $(am_stress_poppler_dir_OBJECTS)
 stress_poppler_dir_DEPENDENCIES = $(am__DEPENDENCIES_2)
-am_stress_poppler_qt4_OBJECTS = stress-poppler-qt4.$(OBJEXT)
-stress_poppler_qt4_OBJECTS = $(am_stress_poppler_qt4_OBJECTS)
-stress_poppler_qt4_DEPENDENCIES = $(am__DEPENDENCIES_2)
-am_stress_threads_qt4_OBJECTS = stress-threads-qt4.$(OBJEXT)
-stress_threads_qt4_OBJECTS = $(am_stress_threads_qt4_OBJECTS)
-stress_threads_qt4_DEPENDENCIES = $(am__DEPENDENCIES_2)
-am_test_password_qt4_OBJECTS = test-password-qt4.$(OBJEXT)
-test_password_qt4_OBJECTS = $(am_test_password_qt4_OBJECTS)
-test_password_qt4_DEPENDENCIES = $(am__DEPENDENCIES_2)
-am_test_poppler_qt4_OBJECTS = test-poppler-qt4.$(OBJEXT)
-test_poppler_qt4_OBJECTS = $(am_test_poppler_qt4_OBJECTS)
-test_poppler_qt4_DEPENDENCIES = $(am__DEPENDENCIES_2)
+am_stress_poppler_qt5_OBJECTS = stress-poppler-qt5.$(OBJEXT)
+stress_poppler_qt5_OBJECTS = $(am_stress_poppler_qt5_OBJECTS)
+stress_poppler_qt5_DEPENDENCIES = $(am__DEPENDENCIES_2)
+am_stress_threads_qt5_OBJECTS = stress-threads-qt5.$(OBJEXT)
+stress_threads_qt5_OBJECTS = $(am_stress_threads_qt5_OBJECTS)
+stress_threads_qt5_DEPENDENCIES = $(am__DEPENDENCIES_2)
+am_test_password_qt5_OBJECTS = test-password-qt5.$(OBJEXT)
+test_password_qt5_OBJECTS = $(am_test_password_qt5_OBJECTS)
+test_password_qt5_DEPENDENCIES = $(am__DEPENDENCIES_2)
+am_test_poppler_qt5_OBJECTS = test-poppler-qt5.$(OBJEXT)
+test_poppler_qt5_OBJECTS = $(am_test_poppler_qt5_OBJECTS)
+test_poppler_qt5_DEPENDENCIES = $(am__DEPENDENCIES_2)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -326,9 +326,9 @@ SOURCES = $(check_actualtext_SOURCES) $(check_attachments_SOURCES) \
 	$(check_search_SOURCES) $(check_strings_SOURCES) \
 	$(poppler_attachments_SOURCES) $(poppler_fonts_SOURCES) \
 	$(poppler_forms_SOURCES) $(poppler_texts_SOURCES) \
-	$(stress_poppler_dir_SOURCES) $(stress_poppler_qt4_SOURCES) \
-	$(stress_threads_qt4_SOURCES) $(test_password_qt4_SOURCES) \
-	$(test_poppler_qt4_SOURCES)
+	$(stress_poppler_dir_SOURCES) $(stress_poppler_qt5_SOURCES) \
+	$(stress_threads_qt5_SOURCES) $(test_password_qt5_SOURCES) \
+	$(test_poppler_qt5_SOURCES)
 DIST_SOURCES = $(am__check_actualtext_SOURCES_DIST) \
 	$(am__check_attachments_SOURCES_DIST) \
 	$(am__check_dateConversion_SOURCES_DIST) \
@@ -347,9 +347,9 @@ DIST_SOURCES = $(am__check_actualtext_SOURCES_DIST) \
 	$(am__check_strings_SOURCES_DIST) \
 	$(poppler_attachments_SOURCES) $(poppler_fonts_SOURCES) \
 	$(poppler_forms_SOURCES) $(poppler_texts_SOURCES) \
-	$(stress_poppler_dir_SOURCES) $(stress_poppler_qt4_SOURCES) \
-	$(stress_threads_qt4_SOURCES) $(test_password_qt4_SOURCES) \
-	$(test_poppler_qt4_SOURCES)
+	$(stress_poppler_dir_SOURCES) $(stress_poppler_qt5_SOURCES) \
+	$(stress_threads_qt5_SOURCES) $(test_password_qt5_SOURCES) \
+	$(test_poppler_qt5_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -792,23 +792,23 @@ AM_LDFLAGS = @auto_import_flags@
 INCLUDES = \
 	-I$(top_srcdir)				\
 	-I$(top_srcdir)/poppler			\
-	-I$(top_srcdir)/qt4/src			\
+	-I$(top_srcdir)/qt5/src			\
 	-DTESTDATADIR=\"$(TESTDATADIR)\"        \
-	$(POPPLER_QT4_CFLAGS)
+	$(POPPLER_QT5_CFLAGS)
 
 LDADDS = \
 	$(top_builddir)/poppler/libpoppler.la	\
-	$(top_builddir)/qt4/src/libpoppler-qt4.la	\
-	$(POPPLER_QT4_LIBS)
+	$(top_builddir)/qt5/src/libpoppler-qt5.la	\
+	$(POPPLER_QT5_LIBS)
 
-test_poppler_qt4_SOURCES = \
-       test-poppler-qt4.cpp
+test_poppler_qt5_SOURCES = \
+       test-poppler-qt5.cpp
 
-test_poppler_qt4_LDADD = $(LDADDS)
-test_password_qt4_SOURCES = \
-       test-password-qt4.cpp
+test_poppler_qt5_LDADD = $(LDADDS)
+test_password_qt5_SOURCES = \
+       test-password-qt5.cpp
 
-test_password_qt4_LDADD = $(LDADDS)
+test_password_qt5_LDADD = $(LDADDS)
 poppler_fonts_SOURCES = \
        poppler-fonts.cpp
 
@@ -825,50 +825,50 @@ poppler_forms_SOURCES = \
        poppler-forms.cpp
 
 poppler_forms_LDADD = $(LDADDS)
-stress_poppler_qt4_SOURCES = \
-       stress-poppler-qt4.cpp
+stress_poppler_qt5_SOURCES = \
+       stress-poppler-qt5.cpp
 
-stress_poppler_qt4_LDADD = $(LDADDS)
+stress_poppler_qt5_LDADD = $(LDADDS)
 stress_poppler_dir_SOURCES = \
        stress-poppler-dir.cpp
 
 stress_poppler_dir_LDADD = $(LDADDS)
-stress_threads_qt4_SOURCES = \
-       stress-threads-qt4.cpp
+stress_threads_qt5_SOURCES = \
+       stress-threads-qt5.cpp
 
-stress_threads_qt4_LDADD = $(LDADDS)
-@BUILD_POPPLER_QT4_TRUE@check_attachments_SOURCES = check_attachments.cpp
-@BUILD_POPPLER_QT4_TRUE@check_attachments_LDADD = $(LDADDS) $(POPPLER_QT4_TEST_LIBS)
-@BUILD_POPPLER_QT4_TRUE@check_actualtext_SOURCES = check_actualtext.cpp
-@BUILD_POPPLER_QT4_TRUE@check_actualtext_LDADD = $(LDADDS) $(POPPLER_QT4_TEST_LIBS)
-@BUILD_POPPLER_QT4_TRUE@check_dateConversion_SOURCES = check_dateConversion.cpp
-@BUILD_POPPLER_QT4_TRUE@check_dateConversion_LDADD = $(LDADDS) $(POPPLER_QT4_TEST_LIBS)
-@BUILD_POPPLER_QT4_TRUE@check_fonts_SOURCES = check_fonts.cpp
-@BUILD_POPPLER_QT4_TRUE@check_fonts_LDADD = $(LDADDS) $(POPPLER_QT4_TEST_LIBS)
-@BUILD_POPPLER_QT4_TRUE@check_links_SOURCES = check_links.cpp
-@BUILD_POPPLER_QT4_TRUE@check_links_LDADD = $(LDADDS) $(POPPLER_QT4_TEST_LIBS)
-@BUILD_POPPLER_QT4_TRUE@check_metadata_SOURCES = check_metadata.cpp
-@BUILD_POPPLER_QT4_TRUE@check_metadata_LDADD = $(LDADDS) $(POPPLER_QT4_TEST_LIBS)
-@BUILD_POPPLER_QT4_TRUE@check_optcontent_SOURCES = check_optcontent.cpp
-@BUILD_POPPLER_QT4_TRUE@check_optcontent_LDADD = $(LDADDS) $(POPPLER_QT4_TEST_LIBS)
-@BUILD_POPPLER_QT4_TRUE@check_pagemode_SOURCES = check_pagemode.cpp
-@BUILD_POPPLER_QT4_TRUE@check_pagemode_LDADD = $(LDADDS) $(POPPLER_QT4_TEST_LIBS)
-@BUILD_POPPLER_QT4_TRUE@check_permissions_SOURCES = check_permissions.cpp
-@BUILD_POPPLER_QT4_TRUE@check_permissions_LDADD = $(LDADDS) $(POPPLER_QT4_TEST_LIBS)
-@BUILD_POPPLER_QT4_TRUE@check_pagelayout_SOURCES = check_pagelayout.cpp
-@BUILD_POPPLER_QT4_TRUE@check_pagelayout_LDADD = $(LDADDS) $(POPPLER_QT4_TEST_LIBS)
-@BUILD_POPPLER_QT4_TRUE@check_password_SOURCES = check_password.cpp
-@BUILD_POPPLER_QT4_TRUE@check_password_LDADD = $(LDADDS) $(POPPLER_QT4_TEST_LIBS)
-@BUILD_POPPLER_QT4_TRUE@check_search_SOURCES = check_search.cpp
-@BUILD_POPPLER_QT4_TRUE@check_search_LDADD = $(LDADDS) $(POPPLER_QT4_TEST_LIBS)
-@BUILD_POPPLER_QT4_TRUE@check_strings_SOURCES = check_strings.cpp
-@BUILD_POPPLER_QT4_TRUE@check_strings_LDADD = $(LDADDS) $(POPPLER_QT4_TEST_LIBS)
-@BUILD_POPPLER_QT4_TRUE@check_lexer_SOURCES = check_lexer.cpp
-@BUILD_POPPLER_QT4_TRUE@check_lexer_LDADD = $(LDADDS) $(POPPLER_QT4_TEST_LIBS)
-@BUILD_POPPLER_QT4_TRUE@check_pagelabelinfo_SOURCES = check_pagelabelinfo.cpp
-@BUILD_POPPLER_QT4_TRUE@check_pagelabelinfo_LDADD = $(LDADDS) $(POPPLER_QT4_TEST_LIBS)
-@BUILD_POPPLER_QT4_TRUE@check_goostring_SOURCES = check_goostring.cpp
-@BUILD_POPPLER_QT4_TRUE@check_goostring_LDADD = $(LDADDS) $(POPPLER_QT4_TEST_LIBS)
+stress_threads_qt5_LDADD = $(LDADDS)
+@BUILD_POPPLER_QT5_TRUE@check_attachments_SOURCES = check_attachments.cpp
+@BUILD_POPPLER_QT5_TRUE@check_attachments_LDADD = $(LDADDS) $(POPPLER_QT5_TEST_LIBS)
+@BUILD_POPPLER_QT5_TRUE@check_actualtext_SOURCES = check_actualtext.cpp
+@BUILD_POPPLER_QT5_TRUE@check_actualtext_LDADD = $(LDADDS) $(POPPLER_QT5_TEST_LIBS)
+@BUILD_POPPLER_QT5_TRUE@check_dateConversion_SOURCES = check_dateConversion.cpp
+@BUILD_POPPLER_QT5_TRUE@check_dateConversion_LDADD = $(LDADDS) $(POPPLER_QT5_TEST_LIBS)
+@BUILD_POPPLER_QT5_TRUE@check_fonts_SOURCES = check_fonts.cpp
+@BUILD_POPPLER_QT5_TRUE@check_fonts_LDADD = $(LDADDS) $(POPPLER_QT5_TEST_LIBS)
+@BUILD_POPPLER_QT5_TRUE@check_links_SOURCES = check_links.cpp
+@BUILD_POPPLER_QT5_TRUE@check_links_LDADD = $(LDADDS) $(POPPLER_QT5_TEST_LIBS)
+@BUILD_POPPLER_QT5_TRUE@check_metadata_SOURCES = check_metadata.cpp
+@BUILD_POPPLER_QT5_TRUE@check_metadata_LDADD = $(LDADDS) $(POPPLER_QT5_TEST_LIBS)
+@BUILD_POPPLER_QT5_TRUE@check_optcontent_SOURCES = check_optcontent.cpp
+@BUILD_POPPLER_QT5_TRUE@check_optcontent_LDADD = $(LDADDS) $(POPPLER_QT5_TEST_LIBS)
+@BUILD_POPPLER_QT5_TRUE@check_pagemode_SOURCES = check_pagemode.cpp
+@BUILD_POPPLER_QT5_TRUE@check_pagemode_LDADD = $(LDADDS) $(POPPLER_QT5_TEST_LIBS)
+@BUILD_POPPLER_QT5_TRUE@check_permissions_SOURCES = check_permissions.cpp
+@BUILD_POPPLER_QT5_TRUE@check_permissions_LDADD = $(LDADDS) $(POPPLER_QT5_TEST_LIBS)
+@BUILD_POPPLER_QT5_TRUE@check_pagelayout_SOURCES = check_pagelayout.cpp
+@BUILD_POPPLER_QT5_TRUE@check_pagelayout_LDADD = $(LDADDS) $(POPPLER_QT5_TEST_LIBS)
+@BUILD_POPPLER_QT5_TRUE@check_password_SOURCES = check_password.cpp
+@BUILD_POPPLER_QT5_TRUE@check_password_LDADD = $(LDADDS) $(POPPLER_QT5_TEST_LIBS)
+@BUILD_POPPLER_QT5_TRUE@check_search_SOURCES = check_search.cpp
+@BUILD_POPPLER_QT5_TRUE@check_search_LDADD = $(LDADDS) $(POPPLER_QT5_TEST_LIBS)
+@BUILD_POPPLER_QT5_TRUE@check_strings_SOURCES = check_strings.cpp
+@BUILD_POPPLER_QT5_TRUE@check_strings_LDADD = $(LDADDS) $(POPPLER_QT5_TEST_LIBS)
+@BUILD_POPPLER_QT5_TRUE@check_lexer_SOURCES = check_lexer.cpp
+@BUILD_POPPLER_QT5_TRUE@check_lexer_LDADD = $(LDADDS) $(POPPLER_QT5_TEST_LIBS)
+@BUILD_POPPLER_QT5_TRUE@check_pagelabelinfo_SOURCES = check_pagelabelinfo.cpp
+@BUILD_POPPLER_QT5_TRUE@check_pagelabelinfo_LDADD = $(LDADDS) $(POPPLER_QT5_TEST_LIBS)
+@BUILD_POPPLER_QT5_TRUE@check_goostring_SOURCES = check_goostring.cpp
+@BUILD_POPPLER_QT5_TRUE@check_goostring_LDADD = $(LDADDS) $(POPPLER_QT5_TEST_LIBS)
 all: all-am
 
 .SUFFIXES:
@@ -882,9 +882,9 @@ $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign qt4/tests/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign qt5/tests/Makefile'; \
 	$(am__cd) $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign qt4/tests/Makefile
+	  $(AUTOMAKE) --foreign qt5/tests/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
@@ -1006,21 +1006,21 @@ stress-poppler-dir$(EXEEXT): $(stress_poppler_dir_OBJECTS) $(stress_poppler_dir_
 	@rm -f stress-poppler-dir$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(stress_poppler_dir_OBJECTS) $(stress_poppler_dir_LDADD) $(LIBS)
 
-stress-poppler-qt4$(EXEEXT): $(stress_poppler_qt4_OBJECTS) $(stress_poppler_qt4_DEPENDENCIES) $(EXTRA_stress_poppler_qt4_DEPENDENCIES) 
-	@rm -f stress-poppler-qt4$(EXEEXT)
-	$(AM_V_CXXLD)$(CXXLINK) $(stress_poppler_qt4_OBJECTS) $(stress_poppler_qt4_LDADD) $(LIBS)
+stress-poppler-qt5$(EXEEXT): $(stress_poppler_qt5_OBJECTS) $(stress_poppler_qt5_DEPENDENCIES) $(EXTRA_stress_poppler_qt5_DEPENDENCIES) 
+	@rm -f stress-poppler-qt5$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(stress_poppler_qt5_OBJECTS) $(stress_poppler_qt5_LDADD) $(LIBS)
 
-stress-threads-qt4$(EXEEXT): $(stress_threads_qt4_OBJECTS) $(stress_threads_qt4_DEPENDENCIES) $(EXTRA_stress_threads_qt4_DEPENDENCIES) 
-	@rm -f stress-threads-qt4$(EXEEXT)
-	$(AM_V_CXXLD)$(CXXLINK) $(stress_threads_qt4_OBJECTS) $(stress_threads_qt4_LDADD) $(LIBS)
+stress-threads-qt5$(EXEEXT): $(stress_threads_qt5_OBJECTS) $(stress_threads_qt5_DEPENDENCIES) $(EXTRA_stress_threads_qt5_DEPENDENCIES) 
+	@rm -f stress-threads-qt5$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(stress_threads_qt5_OBJECTS) $(stress_threads_qt5_LDADD) $(LIBS)
 
-test-password-qt4$(EXEEXT): $(test_password_qt4_OBJECTS) $(test_password_qt4_DEPENDENCIES) $(EXTRA_test_password_qt4_DEPENDENCIES) 
-	@rm -f test-password-qt4$(EXEEXT)
-	$(AM_V_CXXLD)$(CXXLINK) $(test_password_qt4_OBJECTS) $(test_password_qt4_LDADD) $(LIBS)
+test-password-qt5$(EXEEXT): $(test_password_qt5_OBJECTS) $(test_password_qt5_DEPENDENCIES) $(EXTRA_test_password_qt5_DEPENDENCIES) 
+	@rm -f test-password-qt5$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(test_password_qt5_OBJECTS) $(test_password_qt5_LDADD) $(LIBS)
 
-test-poppler-qt4$(EXEEXT): $(test_poppler_qt4_OBJECTS) $(test_poppler_qt4_DEPENDENCIES) $(EXTRA_test_poppler_qt4_DEPENDENCIES) 
-	@rm -f test-poppler-qt4$(EXEEXT)
-	$(AM_V_CXXLD)$(CXXLINK) $(test_poppler_qt4_OBJECTS) $(test_poppler_qt4_LDADD) $(LIBS)
+test-poppler-qt5$(EXEEXT): $(test_poppler_qt5_OBJECTS) $(test_poppler_qt5_DEPENDENCIES) $(EXTRA_test_poppler_qt5_DEPENDENCIES) 
+	@rm -f test-poppler-qt5$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(test_poppler_qt5_OBJECTS) $(test_poppler_qt5_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -1049,10 +1049,10 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/poppler-forms.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/poppler-texts.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/stress-poppler-dir.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/stress-poppler-qt4.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/stress-threads-qt4.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test-password-qt4.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test-poppler-qt4.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/stress-poppler-qt5.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/stress-threads-qt5.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test-password-qt5.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test-poppler-qt5.Po@am__quote@
 
 .cpp.o:
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXXCOMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -1560,26 +1560,26 @@ uninstall-am:
 SUFFIXES: .moc
 
 .cpp.moc:
-	$(AM_V_GEN) $(MOCQT4) -i $< -o $@
+	$(AM_V_GEN) $(MOCQT5) -i $< -o $@
 
 clean-generic:
 	rm -f *.moc
-@BUILD_POPPLER_QT4_TRUE@check_attachments.$(OBJEXT): check_attachments.moc
-@BUILD_POPPLER_QT4_TRUE@check_actualtext.$(OBJEXT): check_actualtext.moc
-@BUILD_POPPLER_QT4_TRUE@check_dateConversion.$(OBJEXT): check_dateConversion.moc
-@BUILD_POPPLER_QT4_TRUE@check_fonts.$(OBJEXT): check_fonts.moc
-@BUILD_POPPLER_QT4_TRUE@check_links.$(OBJEXT): check_links.moc
-@BUILD_POPPLER_QT4_TRUE@check_metadata.$(OBJEXT): check_metadata.moc
-@BUILD_POPPLER_QT4_TRUE@check_optcontent.$(OBJEXT): check_optcontent.moc
-@BUILD_POPPLER_QT4_TRUE@check_pagemode.$(OBJEXT): check_pagemode.moc
-@BUILD_POPPLER_QT4_TRUE@check_permissions.$(OBJEXT): check_permissions.moc
-@BUILD_POPPLER_QT4_TRUE@check_pagelayout.$(OBJEXT): check_pagelayout.moc
-@BUILD_POPPLER_QT4_TRUE@check_password.$(OBJEXT): check_password.moc
-@BUILD_POPPLER_QT4_TRUE@check_search.$(OBJEXT): check_search.moc
-@BUILD_POPPLER_QT4_TRUE@check_strings.$(OBJEXT): check_strings.moc
-@BUILD_POPPLER_QT4_TRUE@check_lexer.$(OBJEXT): check_lexer.moc
-@BUILD_POPPLER_QT4_TRUE@check_pagelabelinfo.$(OBJEXT): check_pagelabelinfo.moc
-@BUILD_POPPLER_QT4_TRUE@check_goostring.$(OBJEXT): check_goostring.moc
+@BUILD_POPPLER_QT5_TRUE@check_attachments.$(OBJEXT): check_attachments.moc
+@BUILD_POPPLER_QT5_TRUE@check_actualtext.$(OBJEXT): check_actualtext.moc
+@BUILD_POPPLER_QT5_TRUE@check_dateConversion.$(OBJEXT): check_dateConversion.moc
+@BUILD_POPPLER_QT5_TRUE@check_fonts.$(OBJEXT): check_fonts.moc
+@BUILD_POPPLER_QT5_TRUE@check_links.$(OBJEXT): check_links.moc
+@BUILD_POPPLER_QT5_TRUE@check_metadata.$(OBJEXT): check_metadata.moc
+@BUILD_POPPLER_QT5_TRUE@check_optcontent.$(OBJEXT): check_optcontent.moc
+@BUILD_POPPLER_QT5_TRUE@check_pagemode.$(OBJEXT): check_pagemode.moc
+@BUILD_POPPLER_QT5_TRUE@check_permissions.$(OBJEXT): check_permissions.moc
+@BUILD_POPPLER_QT5_TRUE@check_pagelayout.$(OBJEXT): check_pagelayout.moc
+@BUILD_POPPLER_QT5_TRUE@check_password.$(OBJEXT): check_password.moc
+@BUILD_POPPLER_QT5_TRUE@check_search.$(OBJEXT): check_search.moc
+@BUILD_POPPLER_QT5_TRUE@check_strings.$(OBJEXT): check_strings.moc
+@BUILD_POPPLER_QT5_TRUE@check_lexer.$(OBJEXT): check_lexer.moc
+@BUILD_POPPLER_QT5_TRUE@check_pagelabelinfo.$(OBJEXT): check_pagelabelinfo.moc
+@BUILD_POPPLER_QT5_TRUE@check_goostring.$(OBJEXT): check_goostring.moc
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

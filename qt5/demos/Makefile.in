@@ -78,8 +78,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-noinst_PROGRAMS = poppler_qt4viewer$(EXEEXT)
-subdir = qt4/demos
+noinst_PROGRAMS = poppler_qt5viewer$(EXEEXT)
+subdir = qt5/demos
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/depcomp
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -98,18 +98,18 @@ CONFIG_HEADER = $(top_builddir)/config.h \
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 PROGRAMS = $(noinst_PROGRAMS)
-am_poppler_qt4viewer_OBJECTS = abstractinfodock.$(OBJEXT) \
+am_poppler_qt5viewer_OBJECTS = abstractinfodock.$(OBJEXT) \
 	documentobserver.$(OBJEXT) embeddedfiles.$(OBJEXT) \
 	fonts.$(OBJEXT) info.$(OBJEXT) main_viewer.$(OBJEXT) \
 	metadata.$(OBJEXT) navigationtoolbar.$(OBJEXT) \
 	optcontent.$(OBJEXT) pageview.$(OBJEXT) permissions.$(OBJEXT) \
 	thumbnails.$(OBJEXT) toc.$(OBJEXT) viewer.$(OBJEXT)
-poppler_qt4viewer_OBJECTS = $(am_poppler_qt4viewer_OBJECTS)
+poppler_qt5viewer_OBJECTS = $(am_poppler_qt5viewer_OBJECTS)
 am__DEPENDENCIES_1 =
 am__DEPENDENCIES_2 = $(top_builddir)/poppler/libpoppler.la \
-	$(top_builddir)/qt4/src/libpoppler-qt4.la \
+	$(top_builddir)/qt5/src/libpoppler-qt5.la \
 	$(am__DEPENDENCIES_1)
-poppler_qt4viewer_DEPENDENCIES = $(am__DEPENDENCIES_2)
+poppler_qt5viewer_DEPENDENCIES = $(am__DEPENDENCIES_2)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
@@ -166,8 +166,8 @@ AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(poppler_qt4viewer_SOURCES)
-DIST_SOURCES = $(poppler_qt4viewer_SOURCES)
+SOURCES = $(poppler_qt5viewer_SOURCES)
+DIST_SOURCES = $(poppler_qt5viewer_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -406,15 +406,15 @@ AM_LDFLAGS = @auto_import_flags@
 INCLUDES = \
 	-I$(top_srcdir)				\
 	-I$(top_srcdir)/poppler			\
-	-I$(top_srcdir)/qt4/src			\
-	$(POPPLER_QT4_CFLAGS)
+	-I$(top_srcdir)/qt5/src			\
+	$(POPPLER_QT5_CFLAGS)
 
 LDADDS = \
 	$(top_builddir)/poppler/libpoppler.la	\
-	$(top_builddir)/qt4/src/libpoppler-qt4.la	\
-	$(POPPLER_QT4_LIBS)
+	$(top_builddir)/qt5/src/libpoppler-qt5.la	\
+	$(POPPLER_QT5_LIBS)
 
-poppler_qt4viewer_SOURCES = \
+poppler_qt5viewer_SOURCES = \
 	abstractinfodock.cpp			\
 	abstractinfodock.h			\
 	documentobserver.cpp			\
@@ -443,7 +443,7 @@ poppler_qt4viewer_SOURCES = \
 	viewer.cpp				\
 	viewer.h
 
-poppler_qt4viewer_LDADD = $(LDADDS)
+poppler_qt5viewer_LDADD = $(LDADDS)
 all: all-am
 
 .SUFFIXES:
@@ -457,9 +457,9 @@ $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign qt4/demos/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign qt5/demos/Makefile'; \
 	$(am__cd) $(top_srcdir) && \
-	  $(AUTOMAKE) --foreign qt4/demos/Makefile
+	  $(AUTOMAKE) --foreign qt5/demos/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
@@ -488,9 +488,9 @@ clean-noinstPROGRAMS:
 	echo " rm -f" $$list; \
 	rm -f $$list
 
-poppler_qt4viewer$(EXEEXT): $(poppler_qt4viewer_OBJECTS) $(poppler_qt4viewer_DEPENDENCIES) $(EXTRA_poppler_qt4viewer_DEPENDENCIES) 
-	@rm -f poppler_qt4viewer$(EXEEXT)
-	$(AM_V_CXXLD)$(CXXLINK) $(poppler_qt4viewer_OBJECTS) $(poppler_qt4viewer_LDADD) $(LIBS)
+poppler_qt5viewer$(EXEEXT): $(poppler_qt5viewer_OBJECTS) $(poppler_qt5viewer_DEPENDENCIES) $(EXTRA_poppler_qt5viewer_DEPENDENCIES) 
+	@rm -f poppler_qt5viewer$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(poppler_qt5viewer_OBJECTS) $(poppler_qt5viewer_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -746,7 +746,7 @@ SUFFIXES: .moc
 
 # This rule lets GNU make create any *.moc from the equivalent *.h
 .h.moc:
-	$(AM_V_GEN) $(MOCQT4) -i $< -o $@
+	$(AM_V_GEN) $(MOCQT5) -i $< -o $@
 
 abstractinfodock.$(OBJEXT): abstractinfodock.moc
 embeddedfiles.$(OBJEXT): embeddedfiles.moc
