@@ -60,6 +60,7 @@ static GMemHdr *gMemTail = NULL;
 static int gMemIndex = 0;
 static int gMemAlloc = 0;
 static int gMemInUse = 0;
+static int gMaxMemInUse = 0;
 
 #endif /* DEBUG_MEM */
 
@@ -97,6 +98,9 @@ inline static void *gmalloc(size_t size, bool checkoverflow) {
   hdr->next = NULL;
   ++gMemAlloc;
   gMemInUse += size;
+  if (gMemInUse > gMaxMemInUse) {
+    gMaxMemInUse = gMemInUse;
+  }
   for (p = (unsigned long *)data; p <= trl; ++p) {
     *p = gMemDeadVal;
   }
@@ -297,6 +301,7 @@ void gMemReport(FILE *f) {
   GMemHdr *p;
 
   fprintf(f, "%d memory allocations in all\n", gMemIndex);
+  fprintf(f, "maximum memory in use: %d bytes\n", gMaxMemInUse);
   if (gMemAlloc > 0) {
     fprintf(f, "%d memory blocks left allocated:\n", gMemAlloc);
     fprintf(f, " index     size\n");
