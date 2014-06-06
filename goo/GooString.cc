@@ -253,7 +253,7 @@ GooString::GooString(GooString *str1, GooString *str2) {
 
 GooString *GooString::fromInt(int x) {
   char buf[24]; // enough space for 64-bit ints plus a little extra
-  char *p;
+  const char *p;
   int len;
   formatInt(x, buf, sizeof(buf), gFalse, 0, 10, &p, &len);
   return new GooString(p, len);
@@ -330,7 +330,7 @@ GooString *GooString::appendfv(const char *fmt, va_list argList) {
   char buf[65];
   int len, i;
   const char *p0, *p1;
-  char *str;
+  const char *str;
 
   argsLen = 0;
   argsSize = 8;
@@ -599,13 +599,23 @@ GooString *GooString::appendfv(const char *fmt, va_list argList) {
 	  reverseAlign = !reverseAlign;
 	  break;
 	case fmtString:
-	  str = arg.s;
-	  len = strlen(str);
+          if (arg.s) {
+            str = arg.s;
+            len = strlen(str);
+          } else {
+            str = "(null)";
+            len = 6;
+          }
 	  reverseAlign = !reverseAlign;
 	  break;
 	case fmtGooString:
-	  str = arg.gs->getCString();
-	  len = arg.gs->getLength();
+          if (arg.gs) {
+            str = arg.gs->getCString();
+            len = arg.gs->getLength();
+          } else {
+            str = "(null)";
+            len = 6;
+          }
 	  reverseAlign = !reverseAlign;
 	  break;
 	case fmtSpace:
@@ -653,11 +663,11 @@ static const char upperCaseDigits[17] = "0123456789ABCDEF";
 #ifdef LLONG_MAX
 void GooString::formatInt(long long x, char *buf, int bufSize,
                           GBool zeroFill, int width, int base,
-                          char **p, int *len, GBool upperCase) {
+                          const char **p, int *len, GBool upperCase) {
 #else
 void GooString::formatInt(long x, char *buf, int bufSize,
                           GBool zeroFill, int width, int base,
-                          char **p, int *len, GBool upperCase) {
+                          const char **p, int *len, GBool upperCase) {
 #endif
   const char *vals = upperCase ? upperCaseDigits : lowerCaseDigits;
   GBool neg;
@@ -698,11 +708,11 @@ void GooString::formatInt(long x, char *buf, int bufSize,
 #ifdef ULLONG_MAX
 void GooString::formatUInt(unsigned long long x, char *buf, int bufSize,
                            GBool zeroFill, int width, int base,
-                           char **p, int *len, GBool upperCase) {
+                           const char **p, int *len, GBool upperCase) {
 #else
 void GooString::formatUInt(Gulong x, char *buf, int bufSize,
                            GBool zeroFill, int width, int base,
-                           char **p, int *len, GBool upperCase) {
+                           const char **p, int *len, GBool upperCase) {
 #endif
   const char *vals = upperCase ? upperCaseDigits : lowerCaseDigits;
   int i, j;
@@ -726,7 +736,7 @@ void GooString::formatUInt(Gulong x, char *buf, int bufSize,
 }
 
 void GooString::formatDouble(double x, char *buf, int bufSize, int prec,
-			   GBool trim, char **p, int *len) {
+			   GBool trim, const char **p, int *len) {
   GBool neg, started;
   double x2;
   int d, i, j;
@@ -765,7 +775,7 @@ void GooString::formatDouble(double x, char *buf, int bufSize, int prec,
 }
 
 void GooString::formatDoubleSmallAware(double x, char *buf, int bufSize, int prec,
-				      GBool trim, char **p, int *len)
+				      GBool trim, const char **p, int *len)
 {
   double absX = fabs(x);
   if (absX >= 0.1) {
