@@ -42,6 +42,7 @@
 #include <ctype.h>
 #include <assert.h>
 #include <math.h>
+#include <limits.h>
 #include "gmem.h"
 #include "GooString.h"
 
@@ -243,6 +244,10 @@ GooString::GooString(const GooString *str) {
 GooString::GooString(GooString *str1, GooString *str2) {
   s = NULL;
   length = 0;
+  if (str1->length > INT_MAX - str2->length) {
+    fprintf(stderr, "Integer overflow in GooString::GooString()\n");
+    exit(1);
+  }
   Set(str1->getCString(), str1->length, str2->getCString(), str2->length);
 }
 
@@ -295,6 +300,12 @@ GooString *GooString::append(const char *str, int lengthA) {
   int prevLen = length;
   if (CALC_STRING_LEN == lengthA)
     lengthA = strlen(str);
+
+  if (lengthA < 0 || length > INT_MAX - lengthA) {
+    fprintf(stderr, "Integer overflow in GooString::append()\n");
+    exit(1);
+  }
+
   resize(length + lengthA);
   memcpy(s + prevLen, str, lengthA);
   return this;
@@ -782,6 +793,11 @@ GooString *GooString::insert(int i, const char *str, int lengthA) {
   if (CALC_STRING_LEN == lengthA)
     lengthA = strlen(str);
 
+  if (lengthA < 0 || length > INT_MAX - lengthA) {
+    fprintf(stderr, "Integer overflow in GooString::insert()\n");
+    exit(1);
+  }
+
   resize(length + lengthA);
   memmove(s+i+lengthA, s+i, prevLen-i);
   memcpy(s+i, str, lengthA);
@@ -791,7 +807,7 @@ GooString *GooString::insert(int i, const char *str, int lengthA) {
 GooString *GooString::del(int i, int n) {
   int j;
 
-  if (i >= 0 && n > 0 && i + n > 0) {
+  if (i >= 0 && n > 0 && i <= INT_MAX - n) {
     if (i + n > length) {
       n = length - i;
     }
