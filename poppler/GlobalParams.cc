@@ -270,7 +270,7 @@ public:
   ~SysFontList();
   SysFontInfo *find(GooString *name, GBool isFixedWidth, GBool exact);
 
-#ifdef WIN32
+#ifdef _WIN32
   void scanWindowsFonts(GooString *winFontDir);
 #endif
 #ifdef WITH_FONTCONFIGURATION_FONTCONFIG
@@ -278,7 +278,7 @@ public:
 #endif
 private:
 
-#ifdef WIN32
+#ifdef _WIN32
   SysFontInfo *makeWindowsFont(char *name, int fontNum,
 			       char *path);
 #endif
@@ -1121,7 +1121,7 @@ static FcPattern *buildFcPattern(GfxFont *font, GooString *base14Name)
 GooString *GlobalParams::findFontFile(GooString *fontName) {
   static const char *exts[] = { ".pfa", ".pfb", ".ttf", ".ttc", ".otf" };
   GooString *path, *dir;
-#ifdef WIN32
+#ifdef _WIN32
   GooString *fontNameU;
 #endif
   const char *ext;
@@ -1139,7 +1139,7 @@ GooString *GlobalParams::findFontFile(GooString *fontName) {
     dir = (GooString *)fontDirs->get(i);
     for (j = 0; j < (int)(sizeof(exts) / sizeof(exts[0])); ++j) {
       ext = exts[j];
-#ifdef WIN32
+#ifdef _WIN32
       fontNameU = fileNameToUTF8(fontName->getCString());
       path = appendToPath(dir->copy(), fontNameU->getCString());
       delete fontNameU;
